@@ -1,0 +1,9 @@
+{
+  "source": "backend/data/contractors.csv",
+  "sha256": "87d082de8481f63795ba9d5b9509b5ffbdeabe3f99efd28b114be780df35d422",
+  "cities": [
+    "Алматы",
+    "Астана",
+    "Зарубежье"
+  ]
+}
