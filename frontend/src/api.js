@@ -12,7 +12,8 @@ export function normalizeBase(value) {
   const base = value.trim().replace(/\/+$/, '');
   if (!base || (!base.startsWith('/') && !/^https?:\/\//.test(base)) || base.startsWith('//') || /[?#]/.test(base)) throw new ApiError('configuration', 'Неверно настроен адрес API.');
   if (/^https?:/.test(base)) {
-    const url = new URL(base);
+    let url;
+    try { url = new URL(base); } catch { throw new ApiError('configuration', 'Неверно настроен адрес API.'); }
     if (url.username || url.password) throw new ApiError('configuration', 'Адрес API не должен содержать учётные данные.');
   }
   return base;

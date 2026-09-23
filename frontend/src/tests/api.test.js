@@ -49,3 +49,9 @@ it('external cancellation is not a service outage', async () => {
 it('unknown schema stays a contract error', async () => {
   await expect(createApi({ fetchImpl: vi.fn().mockResolvedValue(json({ results: [] })) }).recommend(request)).rejects.toMatchObject({ name: 'ContractError' });
 });
+
+it('an invalid absolute API address is reported as a configuration error', async () => {
+  const fetchImpl = vi.fn();
+  await expect(createApi({ baseUrl: 'http://[invalid', fetchImpl }).recommend(request)).rejects.toMatchObject({ code: 'configuration' });
+  expect(fetchImpl).not.toHaveBeenCalled();
+});

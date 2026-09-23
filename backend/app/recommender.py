@@ -40,7 +40,9 @@ def _score(item: Contractor, request: RecommendationRequest, factors: list[str])
     else:
         slack = max(0.0, item.max_hours - request.duration_hours)
         duration_fit = min(15.0, 5.0 + 10.0 * slack / max(item.max_hours, 1.0))
-    evidence_fit = 15.0 if "profile" in factors else 0.0
+    # Five points require a concrete source feature; ten more require that this
+    # feature relates to the requested category or event. Slogans earn no points.
+    evidence_fit = (5.0 if "profile" in factors else 0.0) + (10.0 if "relevant_profile" in factors else 0.0)
     return round(budget_headroom + language_fit + duration_fit + evidence_fit, 2)
 
 
@@ -71,7 +73,7 @@ def recommend(request: RecommendationRequest, contractors: list[Contractor], dat
         if request.duration_hours is not None and item.max_hours is not None and request.duration_hours > item.max_hours:
             excluded["duration"] += 1
             continue
-        explanation, factors = build_explanation(item, event_type=request.event_type, budget_kzt=request.budget_kzt, duration_hours=request.duration_hours, language=request.language)
+        explanation, factors = build_explanation(item, category=request.category, event_type=request.event_type, budget_kzt=request.budget_kzt, duration_hours=request.duration_hours, language=request.language)
         scored.append(_Scored(item, _score(item, request, factors), factors, explanation))
 
     scored.sort(key=lambda x: (-x.score, x.contractor.price_from_kzt, x.contractor.id))

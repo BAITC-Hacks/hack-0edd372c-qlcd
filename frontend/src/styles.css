@@ -350,3 +350,11 @@ html[data-theme="dark"] .matcher-main select:focus {
   border-color: var(--orange);
   box-shadow: 0 0 0 3px rgba(244, 107, 22, .18);
 }
+html[data-theme="dark"] .error-panel {
+  color: var(--ink);
+  background: #35221d;
+  border-color: #865346;
+}
+html[data-theme="dark"] .error-panel h3,
+html[data-theme="dark"] .field-error { color: #ffb4a2; }
+html[data-theme="dark"] .data-note { color: #e5b877; }

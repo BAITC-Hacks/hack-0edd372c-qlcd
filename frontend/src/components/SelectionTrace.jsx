@@ -16,7 +16,7 @@ export default function SelectionTrace({ response }) {
       </ul>
       <p className="hint">Каждый профиль учитывается один раз — по первой причине исключения.</p>
       <p className="hint">Порядок проверок: дата → бюджет → формат → язык → длительность.</p>
-      <details className="technical-details"><summary>Технические детали API</summary>{response.status !== 'matches_found' && <p>{summary}</p>}<p className="hint">Версия каталога: {response.datasetVersion || 'API не сообщает'}. Признаки подставленных цены и города в текущем контракте отсутствуют.</p></details>
+      <details className="technical-details"><summary>Технические детали API</summary>{response.status !== 'matches_found' && <p>{summary}</p>}<p className="hint">Версия каталога: {response.datasetVersion || 'API не сообщает'}. Подставленные при подготовке датасета цена и город отмечаются в карточках, если API передал соответствующие признаки.</p></details>
     </div>
   </details>;
 }

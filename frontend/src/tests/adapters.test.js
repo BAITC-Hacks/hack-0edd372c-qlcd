@@ -44,3 +44,8 @@ it('uses the working metadata endpoint and documents only the city defect', () =
   expect(broken.source.sha256).toHaveLength(64);
   expect(() => adaptMetadata({})).toThrow(ContractError);
 });
+
+it('accepts the nullable dataset version declared by the API schema', () => {
+  expect(adaptResponse(response({ dataset_version: null }), request).datasetVersion).toBeNull();
+  expect(() => adaptResponse(response({ dataset_version: 123 }), request)).toThrow(ContractError);
+});

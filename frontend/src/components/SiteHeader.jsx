@@ -11,17 +11,24 @@ const Icon = ({ name }) => name === 'sun'
 export default function SiteHeader({ page, copy, language, languageLabels, theme, cartCount, onNavigate, onLanguage, onTheme }) {
   const [languagesOpen, setLanguagesOpen] = useState(false);
   const menuRef = useRef(null);
+  const languageButtonRef = useRef(null);
   useEffect(() => {
     const close = event => { if (!menuRef.current?.contains(event.target)) setLanguagesOpen(false); };
     document.addEventListener('pointerdown', close);
     return () => document.removeEventListener('pointerdown', close);
   }, []);
+  function onMenuKeyDown(event) {
+    if (event.key === 'Escape') {
+      setLanguagesOpen(false);
+      languageButtonRef.current?.focus();
+    }
+  }
   return <header className="site-header"><div className="header-inner">
     <button className="logo-button" type="button" onClick={() => onNavigate('home')} aria-label="HelpHunter — главная"><span className="q-logo" aria-hidden="true"><span>Q</span><i /></span><span className="wordmark">Help<span>Hunter</span></span></button>
-    <nav className="main-nav" aria-label="Основная навигация">{Object.entries(copy.nav).map(([key, label]) => <button type="button" className={page === key ? 'active' : ''} key={key} onClick={() => onNavigate(key)}>{label}</button>)}</nav>
-    <div className="header-tools"><div className="language-menu" ref={menuRef}>
-      <button className="icon-button language-button" type="button" aria-label="Сменить язык" aria-expanded={languagesOpen} onClick={() => setLanguagesOpen(value => !value)}><Icon name="globe"/><span>{languageLabels[language]}</span></button>
-      {languagesOpen && <div className="language-popover" role="menu">{Object.entries(languageLabels).map(([code, label]) => <button role="menuitem" className={language === code ? 'selected' : ''} type="button" key={code} onClick={() => { onLanguage(code); setLanguagesOpen(false); }}>{label}<span>{code === 'ru' ? 'Русский' : code === 'kk' ? 'Қазақша' : 'English'}</span></button>)}</div>}
+    <nav className="main-nav" aria-label="Основная навигация">{Object.entries(copy.nav).map(([key, label]) => <button type="button" aria-current={page === key ? 'page' : undefined} className={page === key ? 'active' : ''} key={key} onClick={() => onNavigate(key)}>{label}</button>)}</nav>
+    <div className="header-tools"><div className="language-menu" ref={menuRef} onKeyDown={onMenuKeyDown} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setLanguagesOpen(false); }}>
+      <button ref={languageButtonRef} className="icon-button language-button" type="button" aria-label="Сменить язык" aria-expanded={languagesOpen} aria-controls="language-options" onClick={() => setLanguagesOpen(value => !value)}><Icon name="globe"/><span>{languageLabels[language]}</span></button>
+      {languagesOpen && <div className="language-popover" id="language-options" role="group" aria-label="Язык интерфейса">{Object.entries(languageLabels).map(([code, label]) => <button aria-pressed={language === code} className={language === code ? 'selected' : ''} type="button" key={code} onClick={() => { onLanguage(code); setLanguagesOpen(false); languageButtonRef.current?.focus(); }}>{label}{' '}<span>{code === 'ru' ? 'Русский' : code === 'kk' ? 'Қазақша' : 'English'}</span></button>)}</div>}
     </div>
     <button className="icon-button" type="button" aria-label={theme === 'light' ? 'Включить тёмную тему' : 'Включить светлую тему'} onClick={onTheme}><Icon name={theme === 'light' ? 'moon' : 'sun'} /></button>
     <button className="cart-button" type="button" onClick={() => onNavigate('cart')} aria-label={`${copy.nav.cart}: ${cartCount}`}><Icon name="cart"/><span className="cart-label">{copy.nav.cart}</span>{cartCount > 0 && <b>{cartCount}</b>}</button>

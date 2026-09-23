@@ -7,7 +7,21 @@ import { demoPresets } from '../src/data/demoPresets.js';
 // Dataset audit is test-only. No catalog or calendars are shipped in the browser.
 const bytes = readFileSync(new URL('../../backend/data/contractors.csv', import.meta.url));
 const rows = parse(bytes, { columns: true, bom: true, skip_empty_lines: true });
+const datasetVersion = createHash('sha256').update(bytes.toString('utf8').replace(/\r\n/g, '\n')).digest('hex').slice(0, 12);
 const split = text => text.split('|').map(value => value.trim()).filter(Boolean);
+test.beforeAll(async ({ request }) => {
+  const apiOrigin = (process.env.API_PROXY_TARGET || 'http://127.0.0.1:8000').replace(/\/+$/, '');
+  const health = await request.get(`${apiOrigin}/health`);
+  expect(health.status()).toBe(200);
+  expect((await health.json()).api_version, 'Restart backend: these regressions require API 1.2.0').toBe('1.2.0');
+  const response = await request.get('/api/meta');
+  expect(response.status()).toBe(200);
+  const meta = await response.json();
+  // Prevent a green run against a server that still runs the previous code/catalog.
+  expect(meta.dataset_version, 'Restart backend: API must expose the current dataset version').toBe(datasetVersion);
+  expect(meta.profile_count).toBe(rows.length);
+  expect([...meta.cities].sort()).toEqual([...new Set(rows.map(row => row.city))].sort());
+});
 const expected = {
   A: { total: 10, eligible: 5 }, B: { total: 2, eligible: 2, ids: ['HK-39372', 'HK-90001'] },
   C: { total: 10, eligible: 0 }, D: { total: 0, eligible: 0 },
@@ -15,7 +29,12 @@ const expected = {
   E2: { total: 5, eligible: 2, ids: ['HK-37181', 'HK-97041'] },
   F: { total: 7, eligible: 2, ids: ['HK-64395', 'HK-90011'] },
 };
+const normalized = value => value.replace(/\s+/g, ' ').trim();
+function sourceEvidence(card) {
+  return card.explanation.match(/Особенность из описания профиля: «([\s\S]+)»\.$/)?.[1];
+}
 function audit(raw) {
+  expect(raw.dataset_version).toBe(datasetVersion);
   const q = raw.query;
   const group = rows.filter(row => row.city === q.city && split(row.categories).includes(q.category));
   const eligible = [];
@@ -44,12 +63,19 @@ function audit(raw) {
     expect(card.category).toBe(q.category);
     expect(card.price_from_kzt).toBe(Number(row.price_from_kzt));
     expect(card.synthetic).toBe(row.synthetic === 'True');
+    expect(card.city_imputed).toBe(row.city_imputed === 'True');
+    expect(card.price_imputed).toBe(row.price_imputed === 'True');
     expect(card.explanation.trim().length).toBeGreaterThan(0);
+    if (card.match_factors.includes('profile')) {
+      const evidence = sourceEvidence(card);
+      expect(evidence).toBeTruthy();
+      expect(normalized(row.description)).toContain(normalized(evidence));
+    }
   }
 }
 async function open(page) {
   await page.goto('/');
-  await page.getByRole('button', { name: 'Найти подрядчика', exact: true }).click();
+  await page.getByRole('button', { name: 'Начать подбор →', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Подобрать', exact: true })).toBeEnabled();
 }
 async function preset(page, id) {
@@ -70,6 +96,7 @@ async function submit(page, enter = false) {
   const timing = response.request().timing();
   const httpMs = timing.responseEnd - timing.requestStart;
   expect(httpMs).toBeGreaterThanOrEqual(0);
+  expect(httpMs).toBeLessThan(10000);
   await expect(page.getByText('Результат последнего выполненного запроса')).toBeVisible();
   await expect(page.getByTestId('contractor-card')).toHaveCount(raw.results.length);
   return { raw, measuredMs, httpMs };
@@ -90,6 +117,14 @@ test('A–F use real backend, preserve order and satisfy CSV constraints', async
     expect(raw.total_category_city).toBe(target.total);
     expect(raw.eligible_count).toBe(target.eligible);
     if (target.ids) expect(raw.results.map(card => card.id).sort()).toEqual([...target.ids].sort());
+    if (['B', 'E1', 'E2', 'F'].includes(item.id)) {
+      const details = raw.results.map(card => {
+        const evidence = sourceEvidence(card);
+        expect(evidence).toBeTruthy();
+        return normalized(evidence).toLowerCase().replaceAll(card.name.toLowerCase(), '');
+      });
+      expect(new Set(details).size).toBe(raw.results.length);
+    }
     for (let i = 0; i < raw.results.length; i++) {
       await expect(page.getByTestId('contractor-card').nth(i)).toContainText(raw.results[i].name);
       await expect(page.getByTestId('contractor-card').nth(i)).toContainText(raw.results[i].explanation);
@@ -110,7 +145,10 @@ test('A–F use real backend, preserve order and satisfy CSV constraints', async
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     report.cases.push({ id: item.id, interactionMs: measuredMs, httpMs, response: raw });
-    if (item.id === 'A' || item.id === 'B') await page.screenshot({ path: testInfo.outputPath(`scenario-${item.id}.png`), fullPage: true });
+    if (item.id === 'A' || item.id === 'B') {
+      await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+      await page.screenshot({ path: testInfo.outputPath(`scenario-${item.id}.png`), fullPage: true, animations: 'disabled' });
+    }
   }
   expect(errors).toEqual([]);
   const file = testInfo.outputPath('live-report.json');
@@ -162,4 +200,59 @@ test('keyboard and invalid input prevent POST; connection loss stays technical',
   await page.getByRole('button', { name: 'Повторить', exact: true }).click();
   expect((await pending).status()).toBe(200);
   await expect(page.getByTestId('contractor-card')).toHaveCount(3);
+});
+
+test('optional language, keyboard menu and local estimate/theme survive navigation and reload', async ({ page }, testInfo) => {
+  await open(page);
+  await page.getByLabel('Язык', { exact: true }).selectOption('');
+  const noLanguage = await submit(page);
+  expect(noLanguage.raw.query.language).toBeNull();
+  await preset(page, 'B');
+  const { raw } = await submit(page);
+  const first = raw.results[0];
+  await page.getByTestId('contractor-card').first().getByRole('button', { name: 'Добавить в смету +' }).click();
+  await page.getByRole('button', { name: 'Смета: 1', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Смета мероприятия' })).toBeVisible();
+  await expect(page.locator('.cart-item')).toContainText(first.id);
+  const total = await page.locator('.cart-summary > strong').innerText();
+  expect(Number(total.replace(/\D/g, ''))).toBe(first.price_from_kzt);
+
+  const languageButton = page.getByRole('button', { name: 'Сменить язык' });
+  await languageButton.focus();
+  await languageButton.press('Enter');
+  await expect(page.getByRole('group', { name: 'Язык интерфейса' })).toBeVisible();
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('Escape');
+  await expect(languageButton).toBeFocused();
+  await expect(page.getByRole('group', { name: 'Язык интерфейса' })).toHaveCount(0);
+
+  const before = await page.locator('html').getAttribute('data-theme');
+  await page.getByRole('button', { name: /Включить (тёмную|светлую) тему/ }).click();
+  const changed = before === 'light' ? 'dark' : 'light';
+  await expect(page.locator('html')).toHaveAttribute('data-theme', changed);
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  await page.screenshot({ path: testInfo.outputPath('estimate-theme.png'), fullPage: true, animations: 'disabled' });
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', changed);
+  await page.getByRole('button', { name: 'Смета: 1', exact: true }).click();
+  await expect(page.locator('.cart-item')).toContainText(first.id);
+  await page.getByRole('button', { name: 'Удалить', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Смета пока пуста' })).toBeVisible();
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Смета: 0', exact: true })).toBeVisible();
+});
+
+test('same-price live bands have distinct source-grounded explanations without names', async ({ page }) => {
+  await open(page);
+  await page.getByLabel('Категория подрядчика', { exact: true }).selectOption('Лайв-бэнд');
+  await page.getByLabel('Дата мероприятия', { exact: true }).fill('2026-09-23');
+  await page.getByLabel('Длительность, ч', { exact: true }).fill('');
+  await page.getByLabel('Язык', { exact: true }).selectOption('');
+  const { raw } = await submit(page);
+  audit(raw);
+  expect(new Set(raw.results.map(card => card.id))).toEqual(new Set(['HK-23752', 'HK-31819', 'HK-83709']));
+  expect(new Set(raw.results.map(card => card.price_from_kzt)).size).toBe(1);
+  const details = raw.results.map(card => normalized(sourceEvidence(card)).toLowerCase().replaceAll(card.name.toLowerCase(), ''));
+  expect(new Set(details).size).toBe(3);
+  for (const card of raw.results) await expect(page.getByTestId('contractor-card').filter({ hasText: card.id })).toContainText(sourceEvidence(card));
 });

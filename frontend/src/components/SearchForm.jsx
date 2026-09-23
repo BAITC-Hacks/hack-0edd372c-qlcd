@@ -20,7 +20,7 @@ export default function SearchForm({ fields, metadata, errors, onChange, onSubmi
   }
 
   const select = (key, label, options, optional = false) => field(key, label, props => <select {...props}>
-    {!fields[key] && <option value="">{optional ? text.none : text.choose}</option>}
+    {(optional || !fields[key]) && <option value="">{optional ? text.none : text.choose}</option>}
     {options.map(value => <option value={value} key={value}>{displayOption(value)}</option>)}
   </select>);
 

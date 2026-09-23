@@ -1,43 +1,130 @@
-# Smart Contractor Matcher — backend
+# HelpHunter — backend
 
-Explainable, availability-aware matching API for the HackAlem contractor catalog.
+FastAPI-сервис **API 1.2.0** подбирает до трёх подрядчиков из предоставленного CSV. Сначала проверяет жёсткие условия, затем ранжирует подходящие профили и объясняет выбор фактами каталога. Бронирование, оплата и уведомления не реализованы. LLM и внешние AI API во время запроса не используются.
 
-## What it does
+Полный сценарий запуска и проверки жюри: [корневой README](../README.md#быстрый-запуск).
 
-The service searches only the supplied 66-profile CSV catalog. It applies hard constraints in this order: city/category, booked date, budget, event format, language, and duration. It then ranks eligible profiles using a deterministic transparent score based on budget headroom, requested language/duration fit, and evidence in the profile description. The same request always produces the same order.
+## Запуск
 
-The API never books a contractor or invents a new profile. It returns up to three cards plus an explanation and aggregate exclusion reasons.
-
-## Run
+Проверенное окружение — Windows и Python **3.11.16**. Команды PowerShell из корня репозитория:
 
 ```powershell
 cd backend
-py -3.13 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
+py -3.11 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --upgrade pip setuptools
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-Frontend endpoint: `POST http://localhost:8000/api/recommend`. Metadata is available at `GET /api/meta`; health is `GET /health`.
+Активация окружения не требуется. Если команды `py` нет, используйте `python -m venv .venv`, предварительно проверив Python 3.11.x через `python --version`. После изменения исходников или зависимостей перезапустите сервер; работающий порт сам по себе не подтверждает актуальность версии.
 
-## Request example
+Для Linux/macOS используются `python3.11 -m venv .venv` и `.venv/bin/python` вместо Windows-пути. Эквивалентные команды приведены в корневом README; запуск на этих ОС отдельно не проверялся.
+
+Прямые зависимости закреплены в [requirements.txt](requirements.txt): FastAPI **0.133.1**, Starlette **1.3.1**, Uvicorn **0.34.0**, Pydantic **2.10.5**, pytest **9.0.3**, httpx **0.28.1**. `httpx` нужен для настоящих API-тестов через TestClient.
+
+## Проверка API
+
+Откройте [health](http://127.0.0.1:8000/health):
 
 ```json
-{"city":"Алматы","event_date":"2026-10-12","event_type":"свадьба","category":"Флорист","budget_kzt":500000,"duration_hours":6,"language":"русский"}
+{"status":"ok","profiles_loaded":66,"dataset_version":"87d082de8481","api_version":"1.2.0"}
 ```
 
-## Response guarantees
+`dataset_version` — 12 первых символов SHA-256 CSV с переводами строк LF; она идентифицирует данные. `api_version` идентифицирует версию API и алгоритма. Swagger доступен по [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs), машиночитаемая схема — `/openapi.json`.
 
-- statuses: `matches_found`, `no_category_in_city`, `no_candidates_meet_conditions`;
-- maximum three results;
-- stable ordering using score, price, and profile ID;
-- `dataset_version` identifies the loaded CSV;
-- cards expose `synthetic`, `city_imputed`, and `price_imputed` provenance flags;
-- explanations use actual availability, budget, format, language, duration, and profile evidence.
+| Запрос | Ответ |
+| --- | --- |
+| `GET /health` | Состояние сервиса, число профилей, версии данных и API |
+| `GET /api/meta` | Города, категории, форматы, языки, число профилей и версия данных |
+| `POST /api/recommend` | Карточки, условия запроса, число исходных и подходящих профилей, причины исключения |
 
-## Tests
+В Swagger выберите `POST /api/recommend` → **Try it out** → вставьте запрос → **Execute**:
+
+```json
+{
+  "city": "Алматы",
+  "event_date": "2026-10-10",
+  "event_type": "корпоратив",
+  "category": "Ведущий",
+  "budget_kzt": 1500000,
+  "duration_hours": 6,
+  "language": "русский",
+  "limit": 3
+}
+```
+
+Ожидается HTTP 200, `matches_found`, `total_category_city: 10`, `eligible_count: 5`, три карточки, `excluded_summary: {"booked": 4, "over_budget": 1}`. Повторите запрос: порядок ID должен совпасть. Другие запросы и зафиксированные ответы — в [демо](../docs/demo.md) и [примерах API](../docs/api-examples.json).
+
+### Валидация запросов
+
+- `city`, `event_type`, `category` — непустые строки после удаления пробелов по краям.
+- `event_date` — реальная дата `YYYY-MM-DD` с **23.09.2026 по 31.12.2026 включительно**; числовые timestamp и строки с временем отклоняются.
+- `budget_kzt` — целое JSON-число от 1 до `9007199254740991`. Верхняя граница сохраняет точность при обработке JavaScript. Цены считаются за мероприятие, не за час.
+- `duration_hours` — конечное положительное JSON-число или `null`; `language` — одна строка или `null`. Пустой язык становится `null`.
+- `limit` — целое JSON-число от 1 до 3, по умолчанию 3. Логические значения и числовые строки не подменяют числа.
+
+Ошибки ввода, включая пробельные обязательные поля и `Infinity`/`NaN`, дают **HTTP 422**. Пример для `city: "   "`:
+
+```json
+{
+  "detail": [
+    {
+      "type": "string_too_short",
+      "loc": ["body", "city"],
+      "msg": "String should have at least 1 character"
+    }
+  ]
+}
+```
+
+Ответ сохраняет `loc`, `type` и `msg`; необработанные `input` и `ctx` исключены, чтобы не передавать несериализуемые `NaN`, бесконечность и внутренние объекты ошибок.
+
+## Пайплайн и объяснения
+
+1. При старте загружается и проверяется каталог.
+2. Отбираются город и категория. Затем проверяются занятость → бюджет → формат → язык → длительность. Каждому исключённому профилю назначается первая неуспешная проверка.
+3. Объяснение перечисляет пройденные условия и выбирает конкретную особенность из описания по тематическим словарям. Приветствия и слоганы отбрасываются; без подходящего факта ответ прямо сообщает недостаточность описания.
+4. Балл учитывает запас бюджета, запрошенные язык/длительность и сведения профиля: 5 баллов за конкретную особенность (`profile`), ещё 10 за её связь с категорией или форматом (`relevant_profile`). Точная формула — в [корневом README](../README.md#формула-ранжирования).
+5. Сортировка: балл по убыванию, цена по возрастанию, ID. При неизменных запросе, данных и алгоритме порядок повторяется.
+
+Карточки содержат `synthetic`, `city_imputed`, `price_imputed`; ответ — `dataset_version`. Признаки происхождения не заменяют подтверждение доступности у подрядчика. Цитата описания — утверждение исходного профиля, не независимая проверка его опыта или качества.
+
+Статусы `matches_found`, `no_category_in_city`, `no_candidates_meet_conditions` возвращаются с **HTTP 200**. Пустой ответ содержит текстовую причину. Счётчики не пересекаются: `total_category_city = eligible_count + сумма excluded_summary`. Персональные причины исключения API не возвращает.
+
+## Проверка каталога
+
+[data/contractors.csv](data/contractors.csv) содержит 66 профилей и 13 колонок. Загрузчик использует стандартный CSV-парсер, UTF-8 с допустимым BOM и корректно обрабатывает кавычки, запятые и переносы строк внутри описаний.
+
+- Нужны ровно известные 13 заголовков без пропусков и дублей; число ячеек каждой записи должно совпадать с заголовком.
+- ID уникальны и непусты; имя, город, категории, форматы и языки обязательны. В списках через `|` не допускаются пустые элементы или дубли.
+- Цена — целое число от 0 до `9007199254740991`. Явный ноль допустим; пустая, отрицательная или дробная цена отклоняется.
+- `max_hours` — конечное положительное число или пустое значение; пустое означает неприменимость ограничения длительности.
+- `busy_dates` — уникальные ISO-даты внутри окна; пустой список допустим. Повреждённые и выходящие за окно даты отклоняются.
+- `synthetic`, `city_imputed`, `price_imputed` — `True` или `False`, без автоматической подмены неизвестного значения на false. Пустое описание допустимо и не порождает выдуманные сведения.
+
+При повреждении сервер не начинает обслуживать запросы. Ошибка `DatasetValidationError` указывает файл, физическую строку начала записи и колонку, например: `contractors.csv: line 2, column price_from_kzt: expected an integer between 0 and 9007199254740991`. Для повторного ID указана также строка первого появления.
+
+После намеренного обновления CSV перезапустите backend и выполните `npm run metadata:export` из `frontend/`, затем тесты и сборку. Это обновляет только справочник городов frontend, не каталог рекомендаций.
+
+## CORS и размещение
+
+Локальный Vite по умолчанию использует same-origin proxy `/api` → `http://127.0.0.1:8000/api`; путь `/api` сохраняется. Для прямых запросов браузера разрешены HTTP-origin `localhost` и `127.0.0.1` на портах **3000, 5173, 4173**.
+
+Переменная backend `CORS_ORIGINS` задаёт через запятую собственный список **вместо** локальных значений. Нужны origin с `http://` или `https://`, без пути, параметров и учётных данных. Необязательный шаблон — [.env.example](.env.example): чтобы использовать файл `.env`, явно передайте Uvicorn `--env-file .env`; обычный запуск использует значения по умолчанию и переменные процесса. Например, перед запуском Uvicorn в том же PowerShell:
 
 ```powershell
-py -3.13 -m pytest -q
+$env:CORS_ORIGINS = 'https://events.example.com,https://preview.example.com'
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
+
+Для Linux/macOS: `CORS_ORIGINS=https://events.example.com .venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8000`. Пустой список отключает разрешения для cross-origin-запросов. Разрешены методы GET/POST и заголовок Content-Type; передача cookies/credentials не используется. Публичный сервер в рамках проверки не развёрнут.
+
+## Тесты
+
+Из `backend/`, используя то же окружение, что для запуска:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -q
+```
+
+Linux/macOS: `.venv/bin/python -m pytest -q`. Набор проверяет действующий API, статусы ошибок, CSV, запросы, фильтры, повторяемость и объяснения. Актуальные итоги совместного прогона backend/frontend и браузера — в [аудите](../docs/audit.md).

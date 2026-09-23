@@ -25,7 +25,7 @@ export function adaptMetadata(raw) {
   requireField(object(raw), 'meta');
   requireField(count(raw.profile_count), 'profile_count');
   for (const key of ['cities', 'categories', 'event_formats', 'languages']) requireField(strings(raw[key]), key);
-  // Confirmed defect in backend/app/data_loader.py: update(str) splits city names.
+  // Compatibility with older backends where update(str) split city names.
   // This is reference metadata only, never a fallback recommendation catalog.
   const brokenCities = raw.cities.every(city => [...city].length === 1);
   return {
@@ -74,7 +74,7 @@ export function adaptResponse(raw, request) {
     }
     return { ...card }; // Preserve backend order, explanation and optional facts.
   });
-  if (raw.dataset_version !== undefined) requireField(text(raw.dataset_version), 'dataset_version');
+  if (raw.dataset_version != null) requireField(text(raw.dataset_version), 'dataset_version');
   return {
     status, cards, summary: raw.message, datasetVersion: raw.dataset_version ?? null,
     trace: { total: raw.total_category_city, eligible: raw.eligible_count, rejected: { ...raw.excluded_summary }, mode: 'first_failure' },

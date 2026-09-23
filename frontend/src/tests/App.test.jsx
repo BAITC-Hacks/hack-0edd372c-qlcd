@@ -128,3 +128,84 @@ it('an unavailable metadata service cannot enable a fake fallback', async () => 
   expect(service.recommend).not.toHaveBeenCalled();
   expect(screen.getByRole('button', { name: 'Подобрать' })).toBeDisabled();
 });
+
+it('discloses legacy city metadata fallback while recommendations still come from the API', async () => {
+  const service = client();
+  const legacyMetadata = adaptMetadata({ ...meta, cities: ['А', 'л', 'м'] });
+  service.metadata.mockResolvedValue(legacyMetadata);
+  await mount(service);
+  expect(screen.getByText(legacyMetadata.notice)).toBeVisible();
+  expect(screen.getByRole('option', { name: 'Алматы' })).toBeInTheDocument();
+  expect(screen.queryByRole('option', { name: 'А', exact: true })).not.toBeInTheDocument();
+  expect(service.recommend).not.toHaveBeenCalled();
+  await send();
+  expect(service.recommend).toHaveBeenCalledTimes(1);
+  expect(await screen.findByTestId('contractor-card')).toHaveTextContent('Тестовый ведущий');
+});
+
+it('uses valid API cities without a fallback notice or additional local cities', async () => {
+  await mount();
+  expect(screen.queryByText(/Список городов взят из CSV/)).not.toBeInTheDocument();
+  expect(screen.getByRole('option', { name: 'Астана' })).toBeInTheDocument();
+  expect(screen.queryByRole('option', { name: 'Зарубежье' })).not.toBeInTheDocument();
+});
+
+it('can remove an optional language restriction after selecting a language', async () => {
+  const service = await mount();
+  await userEvent.selectOptions(screen.getByLabelText('Язык'), 'казахский');
+  await userEvent.selectOptions(screen.getByLabelText('Язык'), '');
+  await send();
+  expect(service.recommend.mock.calls[0][0].language).toBeNull();
+});
+
+it('retry validates and sends the currently edited form after an API error', async () => {
+  const service = client();
+  service.recommend.mockRejectedValueOnce(new ApiError('server', 'Временная ошибка.'));
+  await mount(service); await send();
+  await screen.findByRole('alert');
+  const budget = screen.getByLabelText('Бюджет на одного подрядчика, ₸');
+  await userEvent.clear(budget);
+  await userEvent.click(screen.getByRole('button', { name: 'Повторить' }));
+  expect(service.recommend).toHaveBeenCalledTimes(1);
+  expect(budget).toHaveFocus();
+  await userEvent.type(budget, '500000');
+  await userEvent.click(screen.getByRole('button', { name: 'Повторить' }));
+  expect(service.recommend.mock.calls[1][0].budget_kzt).toBe(500000);
+});
+
+it('unavailable browser storage cannot break matching or the current estimate', async () => {
+  vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => { throw new DOMException('Blocked', 'SecurityError'); });
+  vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw new DOMException('Full', 'QuotaExceededError'); });
+  await mount(); await send();
+  await userEvent.click(await screen.findByRole('button', { name: 'Добавить в смету +' }));
+  await userEvent.click(screen.getByRole('button', { name: 'Смета: 1' }));
+  expect(screen.getByRole('heading', { name: 'Смета мероприятия' })).toBeVisible();
+  expect(screen.getByRole('heading', { name: 'Тестовый ведущий' })).toBeVisible();
+});
+
+it('invalid saved preferences and estimate recover to a usable form', async () => {
+  localStorage.setItem('helphunter-language', 'not a locale');
+  localStorage.setItem('helphunter-theme', 'invalid');
+  localStorage.setItem('helphunter-cart', '{"id":"not-an-array"}');
+  await mount(); await send();
+  expect(await screen.findByTestId('contractor-card')).toBeVisible();
+  expect(document.documentElement.lang).toBe('ru');
+  expect(document.documentElement.dataset.theme).toBe('light');
+  expect(screen.getByRole('button', { name: 'Смета: 0' })).toBeVisible();
+});
+
+it('language choices support Tab and Escape, returning focus to the trigger', async () => {
+  await mount();
+  const trigger = screen.getByRole('button', { name: 'Сменить язык' });
+  await userEvent.click(trigger);
+  await userEvent.tab();
+  expect(screen.getByRole('button', { name: 'RU Русский' })).toHaveFocus();
+  await userEvent.keyboard('{Escape}');
+  expect(trigger).toHaveFocus();
+  expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  await userEvent.click(trigger);
+  await userEvent.click(screen.getByRole('button', { name: 'EN English' }));
+  expect(trigger).toHaveFocus();
+  expect(document.documentElement.lang).toBe('en');
+  expect(screen.getByRole('heading', { name: 'Contractors for your event' })).toBeVisible();
+});

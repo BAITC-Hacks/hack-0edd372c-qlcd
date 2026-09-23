@@ -1,784 +1,1738 @@
 {
-    "checked_at":  "2026-09-23",
-    "environment":  "Windows; Chrome 153; Node 22.23.2; real FastAPI at 127.0.0.1:8000",
-    "route":  "Vite dev /api -\u003e existing FastAPI /api (prefix preserved)",
-    "measurement":  "httpMs: browser responseEnd minus requestStart; interactionMs: automation click through JSON receipt",
-    "runs":  [
-                 {
-                     "dataset_sha256":  "87d082de8481f63795ba9d5b9509b5ffbdeabe3f99efd28b114be780df35d422",
-                     "project":  "laptop",
-                     "cases":  [
-                                   {
-                                       "id":  "A",
-                                       "interactionMs":  89.72789999999986,
-                                       "httpMs":  6.498,
-                                       "response":  {
-                                                        "status":  "matches_found",
-                                                        "message":  "Найдено 5 подходящих профилей; показаны лучшие 3 по прозрачному баллу соответствия.",
-                                                        "query":  {
-                                                                      "city":  "Алматы",
-                                                                      "event_date":  "2026-10-10",
-                                                                      "event_type":  "корпоратив",
-                                                                      "category":  "Ведущий",
-                                                                      "budget_kzt":  1500000,
-                                                                      "duration_hours":  6,
-                                                                      "language":  "русский",
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  10,
-                                                        "eligible_count":  5,
-                                                        "results":  [
-                                                                        {
-                                                                            "id":  "HK-88430",
-                                                                            "name":  "Куррапика",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  500000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 500,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», работает на языке «русский», лимит площадки 6 ч подходит под запрос на 6 ч. Из описания профиля: «Я, Куррапика — профессиональный ведущий мероприятий с современным подходом и тонким чувством аудитории.».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language",
-                                                                                                  "duration",
-                                                                                                  "profile"
-                                                                                              ],
-                                                                            "score":  100
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-29829",
-                                                                            "name":  "Аня Форджер",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  700000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 700,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», работает на языке «русский», лимит площадки 6 ч подходит под запрос на 6 ч.",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language",
-                                                                                                  "duration"
-                                                                                              ],
-                                                                            "score":  100
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-27222",
-                                                                            "name":  "Сон Гоку",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  1000000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 1,000,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», работает на языке «русский», лимит площадки 10 ч подходит под запрос на 6 ч. Из описания профиля: «Гоку — ведущий, который держит зал, уважает культуру и превращает событие в тёплую, лёгкую и динамичную историю.».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language",
-                                                                                                  "duration",
-                                                                                                  "profile"
-                                                                                              ],
-                                                                            "score":  100
-                                                                        }
-                                                                    ],
-                                                        "excluded_summary":  {
-                                                                                 "booked":  4,
-                                                                                 "over_budget":  1
-                                                                             }
-                                                    }
-                                   },
-                                   {
-                                       "id":  "B",
-                                       "interactionMs":  53.36329999999998,
-                                       "httpMs":  4.5329999999999995,
-                                       "response":  {
-                                                        "status":  "matches_found",
-                                                        "message":  "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
-                                                        "query":  {
-                                                                      "city":  "Алматы",
-                                                                      "event_date":  "2026-10-11",
-                                                                      "event_type":  "свадьба",
-                                                                      "category":  "Флорист",
-                                                                      "budget_kzt":  400000,
-                                                                      "duration_hours":  8,
-                                                                      "language":  "русский",
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  2,
-                                                        "eligible_count":  2,
-                                                        "results":  [
-                                                                        {
-                                                                            "id":  "HK-39372",
-                                                                            "name":  "Тони Тони Чоппер",
-                                                                            "category":  "Флорист",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  200000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 200,000 ₸ укладывается в бюджет 400,000 ₸, профиль принимает формат «свадьба», работает на языке «русский».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language"
-                                                                                              ],
-                                                                            "score":  98
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-90001",
-                                                                            "name":  "Тихиро Огино",
-                                                                            "category":  "Флорист",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  250000,
-                                                                            "synthetic":  true,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 250,000 ₸ укладывается в бюджет 400,000 ₸, профиль принимает формат «свадьба», работает на языке «русский».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language"
-                                                                                              ],
-                                                                            "score":  98
-                                                                        }
-                                                                    ],
-                                                        "excluded_summary":  {
-
-                                                                             }
-                                                    }
-                                   },
-                                   {
-                                       "id":  "C",
-                                       "interactionMs":  50.503000000000156,
-                                       "httpMs":  4.112,
-                                       "response":  {
-                                                        "status":  "no_candidates_meet_conditions",
-                                                        "message":  "Категория есть в городе, но подходящих профилей нет: 4 — booked, 6 — over_budget.",
-                                                        "query":  {
-                                                                      "city":  "Алматы",
-                                                                      "event_date":  "2026-10-10",
-                                                                      "event_type":  "корпоратив",
-                                                                      "category":  "Ведущий",
-                                                                      "budget_kzt":  1000,
-                                                                      "duration_hours":  6,
-                                                                      "language":  "русский",
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  10,
-                                                        "eligible_count":  0,
-                                                        "results":  [
-
-                                                                    ],
-                                                        "excluded_summary":  {
-                                                                                 "booked":  4,
-                                                                                 "over_budget":  6
-                                                                             }
-                                                    }
-                                   },
-                                   {
-                                       "id":  "D",
-                                       "interactionMs":  50.559999999999945,
-                                       "httpMs":  3.824,
-                                       "response":  {
-                                                        "status":  "no_category_in_city",
-                                                        "message":  "В городе «Астана» нет подрядчиков категории «Инструменталист».",
-                                                        "query":  {
-                                                                      "city":  "Астана",
-                                                                      "event_date":  "2026-10-15",
-                                                                      "event_type":  "корпоратив",
-                                                                      "category":  "Инструменталист",
-                                                                      "budget_kzt":  1000000,
-                                                                      "duration_hours":  null,
-                                                                      "language":  null,
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  0,
-                                                        "eligible_count":  0,
-                                                        "results":  [
-
-                                                                    ],
-                                                        "excluded_summary":  {
-
-                                                                             }
-                                                    }
-                                   },
-                                   {
-                                       "id":  "E1",
-                                       "interactionMs":  48.446100000000115,
-                                       "httpMs":  4.329,
-                                       "response":  {
-                                                        "status":  "matches_found",
-                                                        "message":  "Найдено 3 подходящих профилей; показаны лучшие 3 по прозрачному баллу соответствия.",
-                                                        "query":  {
-                                                                      "city":  "Астана",
-                                                                      "event_date":  "2026-10-15",
-                                                                      "event_type":  "свадьба",
-                                                                      "category":  "Ведущий",
-                                                                      "budget_kzt":  1000000,
-                                                                      "duration_hours":  null,
-                                                                      "language":  null,
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  5,
-                                                        "eligible_count":  3,
-                                                        "results":  [
-                                                                        {
-                                                                            "id":  "HK-37181",
-                                                                            "name":  "Нами",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Астана",
-                                                                            "price_from_kzt":  800000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Из описания профиля: ««ДОРОГУ ОСИЛИТ ИДУЩИЙ, А ПРОВОДЫ ОСИЛИТ ВЕДУЩИЙ!» ВСЕМ ПРИВЕТ!».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "profile"
-                                                                                              ],
-                                                                            "score":  78
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-80581",
-                                                                            "name":  "Санджи Виндсмок",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Астана",
-                                                                            "price_from_kzt":  800000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format"
-                                                                                              ],
-                                                                            "score":  76
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-97041",
-                                                                            "name":  "Тэнъя Иида",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Астана",
-                                                                            "price_from_kzt":  1000000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 1,000,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format"
-                                                                                              ],
-                                                                            "score":  76
-                                                                        }
-                                                                    ],
-                                                        "excluded_summary":  {
-                                                                                 "booked":  2
-                                                                             }
-                                                    }
-                                   },
-                                   {
-                                       "id":  "E2",
-                                       "interactionMs":  47.08800000000019,
-                                       "httpMs":  3.8100000000000005,
-                                       "response":  {
-                                                        "status":  "matches_found",
-                                                        "message":  "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
-                                                        "query":  {
-                                                                      "city":  "Астана",
-                                                                      "event_date":  "2026-10-16",
-                                                                      "event_type":  "свадьба",
-                                                                      "category":  "Ведущий",
-                                                                      "budget_kzt":  1000000,
-                                                                      "duration_hours":  null,
-                                                                      "language":  null,
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  5,
-                                                        "eligible_count":  2,
-                                                        "results":  [
-                                                                        {
-                                                                            "id":  "HK-37181",
-                                                                            "name":  "Нами",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Астана",
-                                                                            "price_from_kzt":  800000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Из описания профиля: ««ДОРОГУ ОСИЛИТ ИДУЩИЙ, А ПРОВОДЫ ОСИЛИТ ВЕДУЩИЙ!» ВСЕМ ПРИВЕТ!».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "profile"
-                                                                                              ],
-                                                                            "score":  78
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-97041",
-                                                                            "name":  "Тэнъя Иида",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Астана",
-                                                                            "price_from_kzt":  1000000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 1,000,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format"
-                                                                                              ],
-                                                                            "score":  76
-                                                                        }
-                                                                    ],
-                                                        "excluded_summary":  {
-                                                                                 "booked":  3
-                                                                             }
-                                                    }
-                                   },
-                                   {
-                                       "id":  "F",
-                                       "interactionMs":  50.926400000000285,
-                                       "httpMs":  4.462,
-                                       "response":  {
-                                                        "status":  "matches_found",
-                                                        "message":  "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
-                                                        "query":  {
-                                                                      "city":  "Алматы",
-                                                                      "event_date":  "2026-11-14",
-                                                                      "event_type":  "свадьба",
-                                                                      "category":  "Банкетный зал",
-                                                                      "budget_kzt":  6500000,
-                                                                      "duration_hours":  6,
-                                                                      "language":  "русский",
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  7,
-                                                        "eligible_count":  2,
-                                                        "results":  [
-                                                                        {
-                                                                            "id":  "HK-64395",
-                                                                            "name":  "Иноскэ Хашибира",
-                                                                            "category":  "Банкетный зал",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  2500000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 2,500,000 ₸ укладывается в бюджет 6,500,000 ₸, профиль принимает формат «свадьба», работает на языке «русский», лимит площадки 8 ч подходит под запрос на 6 ч.",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language",
-                                                                                                  "duration"
-                                                                                              ],
-                                                                            "score":  100
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-90011",
-                                                                            "name":  "Гохан",
-                                                                            "category":  "Банкетный зал",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  3200000,
-                                                                            "synthetic":  true,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 3,200,000 ₸ укладывается в бюджет 6,500,000 ₸, профиль принимает формат «свадьба», работает на языке «русский», лимит площадки 8 ч подходит под запрос на 6 ч.",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language",
-                                                                                                  "duration"
-                                                                                              ],
-                                                                            "score":  100
-                                                                        }
-                                                                    ],
-                                                        "excluded_summary":  {
-                                                                                 "booked":  5
-                                                                             }
-                                                    }
-                                   }
-                               ]
-                 },
-                 {
-                     "dataset_sha256":  "87d082de8481f63795ba9d5b9509b5ffbdeabe3f99efd28b114be780df35d422",
-                     "project":  "mobile",
-                     "cases":  [
-                                   {
-                                       "id":  "A",
-                                       "interactionMs":  90.94479999999999,
-                                       "httpMs":  5.1000000000000005,
-                                       "response":  {
-                                                        "status":  "matches_found",
-                                                        "message":  "Найдено 5 подходящих профилей; показаны лучшие 3 по прозрачному баллу соответствия.",
-                                                        "query":  {
-                                                                      "city":  "Алматы",
-                                                                      "event_date":  "2026-10-10",
-                                                                      "event_type":  "корпоратив",
-                                                                      "category":  "Ведущий",
-                                                                      "budget_kzt":  1500000,
-                                                                      "duration_hours":  6,
-                                                                      "language":  "русский",
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  10,
-                                                        "eligible_count":  5,
-                                                        "results":  [
-                                                                        {
-                                                                            "id":  "HK-88430",
-                                                                            "name":  "Куррапика",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  500000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 500,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», работает на языке «русский», лимит площадки 6 ч подходит под запрос на 6 ч. Из описания профиля: «Я, Куррапика — профессиональный ведущий мероприятий с современным подходом и тонким чувством аудитории.».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language",
-                                                                                                  "duration",
-                                                                                                  "profile"
-                                                                                              ],
-                                                                            "score":  100
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-29829",
-                                                                            "name":  "Аня Форджер",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  700000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 700,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», работает на языке «русский», лимит площадки 6 ч подходит под запрос на 6 ч.",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language",
-                                                                                                  "duration"
-                                                                                              ],
-                                                                            "score":  100
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-27222",
-                                                                            "name":  "Сон Гоку",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  1000000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 1,000,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», работает на языке «русский», лимит площадки 10 ч подходит под запрос на 6 ч. Из описания профиля: «Гоку — ведущий, который держит зал, уважает культуру и превращает событие в тёплую, лёгкую и динамичную историю.».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language",
-                                                                                                  "duration",
-                                                                                                  "profile"
-                                                                                              ],
-                                                                            "score":  100
-                                                                        }
-                                                                    ],
-                                                        "excluded_summary":  {
-                                                                                 "booked":  4,
-                                                                                 "over_budget":  1
-                                                                             }
-                                                    }
-                                   },
-                                   {
-                                       "id":  "B",
-                                       "interactionMs":  65.55219999999986,
-                                       "httpMs":  5.779,
-                                       "response":  {
-                                                        "status":  "matches_found",
-                                                        "message":  "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
-                                                        "query":  {
-                                                                      "city":  "Алматы",
-                                                                      "event_date":  "2026-10-11",
-                                                                      "event_type":  "свадьба",
-                                                                      "category":  "Флорист",
-                                                                      "budget_kzt":  400000,
-                                                                      "duration_hours":  8,
-                                                                      "language":  "русский",
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  2,
-                                                        "eligible_count":  2,
-                                                        "results":  [
-                                                                        {
-                                                                            "id":  "HK-39372",
-                                                                            "name":  "Тони Тони Чоппер",
-                                                                            "category":  "Флорист",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  200000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 200,000 ₸ укладывается в бюджет 400,000 ₸, профиль принимает формат «свадьба», работает на языке «русский».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language"
-                                                                                              ],
-                                                                            "score":  98
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-90001",
-                                                                            "name":  "Тихиро Огино",
-                                                                            "category":  "Флорист",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  250000,
-                                                                            "synthetic":  true,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 250,000 ₸ укладывается в бюджет 400,000 ₸, профиль принимает формат «свадьба», работает на языке «русский».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language"
-                                                                                              ],
-                                                                            "score":  98
-                                                                        }
-                                                                    ],
-                                                        "excluded_summary":  {
-
-                                                                             }
-                                                    }
-                                   },
-                                   {
-                                       "id":  "C",
-                                       "interactionMs":  53.052599999999984,
-                                       "httpMs":  3.7589999999999995,
-                                       "response":  {
-                                                        "status":  "no_candidates_meet_conditions",
-                                                        "message":  "Категория есть в городе, но подходящих профилей нет: 4 — booked, 6 — over_budget.",
-                                                        "query":  {
-                                                                      "city":  "Алматы",
-                                                                      "event_date":  "2026-10-10",
-                                                                      "event_type":  "корпоратив",
-                                                                      "category":  "Ведущий",
-                                                                      "budget_kzt":  1000,
-                                                                      "duration_hours":  6,
-                                                                      "language":  "русский",
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  10,
-                                                        "eligible_count":  0,
-                                                        "results":  [
-
-                                                                    ],
-                                                        "excluded_summary":  {
-                                                                                 "booked":  4,
-                                                                                 "over_budget":  6
-                                                                             }
-                                                    }
-                                   },
-                                   {
-                                       "id":  "D",
-                                       "interactionMs":  34.37980000000016,
-                                       "httpMs":  3.4750000000000005,
-                                       "response":  {
-                                                        "status":  "no_category_in_city",
-                                                        "message":  "В городе «Астана» нет подрядчиков категории «Инструменталист».",
-                                                        "query":  {
-                                                                      "city":  "Астана",
-                                                                      "event_date":  "2026-10-15",
-                                                                      "event_type":  "корпоратив",
-                                                                      "category":  "Инструменталист",
-                                                                      "budget_kzt":  1000000,
-                                                                      "duration_hours":  null,
-                                                                      "language":  null,
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  0,
-                                                        "eligible_count":  0,
-                                                        "results":  [
-
-                                                                    ],
-                                                        "excluded_summary":  {
-
-                                                                             }
-                                                    }
-                                   },
-                                   {
-                                       "id":  "E1",
-                                       "interactionMs":  54.478799999999865,
-                                       "httpMs":  3.7190000000000003,
-                                       "response":  {
-                                                        "status":  "matches_found",
-                                                        "message":  "Найдено 3 подходящих профилей; показаны лучшие 3 по прозрачному баллу соответствия.",
-                                                        "query":  {
-                                                                      "city":  "Астана",
-                                                                      "event_date":  "2026-10-15",
-                                                                      "event_type":  "свадьба",
-                                                                      "category":  "Ведущий",
-                                                                      "budget_kzt":  1000000,
-                                                                      "duration_hours":  null,
-                                                                      "language":  null,
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  5,
-                                                        "eligible_count":  3,
-                                                        "results":  [
-                                                                        {
-                                                                            "id":  "HK-37181",
-                                                                            "name":  "Нами",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Астана",
-                                                                            "price_from_kzt":  800000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Из описания профиля: ««ДОРОГУ ОСИЛИТ ИДУЩИЙ, А ПРОВОДЫ ОСИЛИТ ВЕДУЩИЙ!» ВСЕМ ПРИВЕТ!».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "profile"
-                                                                                              ],
-                                                                            "score":  78
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-80581",
-                                                                            "name":  "Санджи Виндсмок",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Астана",
-                                                                            "price_from_kzt":  800000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format"
-                                                                                              ],
-                                                                            "score":  76
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-97041",
-                                                                            "name":  "Тэнъя Иида",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Астана",
-                                                                            "price_from_kzt":  1000000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 1,000,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format"
-                                                                                              ],
-                                                                            "score":  76
-                                                                        }
-                                                                    ],
-                                                        "excluded_summary":  {
-                                                                                 "booked":  2
-                                                                             }
-                                                    }
-                                   },
-                                   {
-                                       "id":  "E2",
-                                       "interactionMs":  49.04770000000008,
-                                       "httpMs":  3.66,
-                                       "response":  {
-                                                        "status":  "matches_found",
-                                                        "message":  "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
-                                                        "query":  {
-                                                                      "city":  "Астана",
-                                                                      "event_date":  "2026-10-16",
-                                                                      "event_type":  "свадьба",
-                                                                      "category":  "Ведущий",
-                                                                      "budget_kzt":  1000000,
-                                                                      "duration_hours":  null,
-                                                                      "language":  null,
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  5,
-                                                        "eligible_count":  2,
-                                                        "results":  [
-                                                                        {
-                                                                            "id":  "HK-37181",
-                                                                            "name":  "Нами",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Астана",
-                                                                            "price_from_kzt":  800000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Из описания профиля: ««ДОРОГУ ОСИЛИТ ИДУЩИЙ, А ПРОВОДЫ ОСИЛИТ ВЕДУЩИЙ!» ВСЕМ ПРИВЕТ!».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "profile"
-                                                                                              ],
-                                                                            "score":  78
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-97041",
-                                                                            "name":  "Тэнъя Иида",
-                                                                            "category":  "Ведущий",
-                                                                            "city":  "Астана",
-                                                                            "price_from_kzt":  1000000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 1,000,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба».",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format"
-                                                                                              ],
-                                                                            "score":  76
-                                                                        }
-                                                                    ],
-                                                        "excluded_summary":  {
-                                                                                 "booked":  3
-                                                                             }
-                                                    }
-                                   },
-                                   {
-                                       "id":  "F",
-                                       "interactionMs":  39.95690000000013,
-                                       "httpMs":  3.542,
-                                       "response":  {
-                                                        "status":  "matches_found",
-                                                        "message":  "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
-                                                        "query":  {
-                                                                      "city":  "Алматы",
-                                                                      "event_date":  "2026-11-14",
-                                                                      "event_type":  "свадьба",
-                                                                      "category":  "Банкетный зал",
-                                                                      "budget_kzt":  6500000,
-                                                                      "duration_hours":  6,
-                                                                      "language":  "русский",
-                                                                      "limit":  3
-                                                                  },
-                                                        "total_category_city":  7,
-                                                        "eligible_count":  2,
-                                                        "results":  [
-                                                                        {
-                                                                            "id":  "HK-64395",
-                                                                            "name":  "Иноскэ Хашибира",
-                                                                            "category":  "Банкетный зал",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  2500000,
-                                                                            "synthetic":  false,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 2,500,000 ₸ укладывается в бюджет 6,500,000 ₸, профиль принимает формат «свадьба», работает на языке «русский», лимит площадки 8 ч подходит под запрос на 6 ч.",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language",
-                                                                                                  "duration"
-                                                                                              ],
-                                                                            "score":  100
-                                                                        },
-                                                                        {
-                                                                            "id":  "HK-90011",
-                                                                            "name":  "Гохан",
-                                                                            "category":  "Банкетный зал",
-                                                                            "city":  "Алматы",
-                                                                            "price_from_kzt":  3200000,
-                                                                            "synthetic":  true,
-                                                                            "explanation":  "Свободен на выбранную дату; цена от 3,200,000 ₸ укладывается в бюджет 6,500,000 ₸, профиль принимает формат «свадьба», работает на языке «русский», лимит площадки 8 ч подходит под запрос на 6 ч.",
-                                                                            "match_factors":  [
-                                                                                                  "availability",
-                                                                                                  "budget",
-                                                                                                  "format",
-                                                                                                  "language",
-                                                                                                  "duration"
-                                                                                              ],
-                                                                            "score":  100
-                                                                        }
-                                                                    ],
-                                                        "excluded_summary":  {
-                                                                                 "booked":  5
-                                                                             }
-                                                    }
-                                   }
-                               ]
-                 }
-             ]
+  "checked_at": "2026-09-23",
+  "source_revision": "4474fd0 + local backend and frontend fixes",
+  "environment": "Windows; Chrome 153; Node 22.23.2; Python 3.11.16; FastAPI 0.133.1; API 1.2.0 at 127.0.0.1:8011",
+  "dataset_version": "87d082de8481",
+  "route": "Vite dev :5181 / preview :4181 -> FastAPI :8011, /api preserved",
+  "measurement": "httpMs: browser responseEnd - requestStart; interactionMs: automated click through JSON receipt; not production load test",
+  "runs": [
+    {
+      "dataset_sha256": "87d082de8481f63795ba9d5b9509b5ffbdeabe3f99efd28b114be780df35d422",
+      "project": "laptop",
+      "cases": [
+        {
+          "id": "A",
+          "interactionMs": 91.0202999999999,
+          "httpMs": 9.495,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 5 подходящих профилей; показаны лучшие 3 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-10-10",
+              "event_type": "корпоратив",
+              "category": "Ведущий",
+              "budget_kzt": 1500000,
+              "duration_hours": 6,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 10,
+            "eligible_count": 5,
+            "results": [
+              {
+                "id": "HK-88430",
+                "name": "Куррапика",
+                "category": "Ведущий",
+                "city": "Алматы",
+                "price_from_kzt": 500000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 500,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», в каталоге указан язык «русский», указанный лимит 6 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Мой стиль — это сочетание интеллигентного юмора, четкой организации и высокого уровня ответственности.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 60,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-29829",
+                "name": "Аня Форджер",
+                "category": "Ведущий",
+                "city": "Алматы",
+                "price_from_kzt": 700000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 700,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», в каталоге указан язык «русский», указанный лимит 6 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Только развлечения и танцы.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 56,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-27222",
+                "name": "Сон Гоку",
+                "category": "Ведущий",
+                "city": "Алматы",
+                "price_from_kzt": 1000000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 1,000,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», в каталоге указан язык «русский», указанный лимит 10 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Сон Гоку — один из самых востребованных двуязычных ведущих Алматы с опытом более 12 лет.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 54,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {
+              "booked": 4,
+              "over_budget": 1
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "B",
+          "interactionMs": 59.68820000000005,
+          "httpMs": 6.907,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-10-11",
+              "event_type": "свадьба",
+              "category": "Флорист",
+              "budget_kzt": 400000,
+              "duration_hours": 8,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 2,
+            "eligible_count": 2,
+            "results": [
+              {
+                "id": "HK-39372",
+                "name": "Тони Тони Чоппер",
+                "category": "Флорист",
+                "city": "Алматы",
+                "price_from_kzt": 200000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 200,000 ₸ укладывается в бюджет 400,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», ограничение длительности в каталоге не задано. Особенность из описания профиля: «Ежемесячно реализуем более 1000 заказов.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 60,
+                "city_imputed": false,
+                "price_imputed": true
+              },
+              {
+                "id": "HK-90001",
+                "name": "Тихиро Огино",
+                "category": "Флорист",
+                "city": "Алматы",
+                "price_from_kzt": 250000,
+                "synthetic": true,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 250,000 ₸ укладывается в бюджет 400,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», ограничение длительности в каталоге не задано. Особенность из описания профиля: «Работаем с сезонными и привозными цветами, собираем композиции под цветовую палитру мероприятия — от букета невесты до оформления стола молодожёнов.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 56.25,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {},
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "C",
+          "interactionMs": 49.57099999999991,
+          "httpMs": 4.869,
+          "response": {
+            "status": "no_candidates_meet_conditions",
+            "message": "Категория есть в городе, но подходящих профилей нет: занят на выбранную дату: 4, цена выше бюджета: 6.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-10-10",
+              "event_type": "корпоратив",
+              "category": "Ведущий",
+              "budget_kzt": 1000,
+              "duration_hours": 6,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 10,
+            "eligible_count": 0,
+            "results": [],
+            "excluded_summary": {
+              "booked": 4,
+              "over_budget": 6
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "D",
+          "interactionMs": 58.16690000000017,
+          "httpMs": 4.353000000000001,
+          "response": {
+            "status": "no_category_in_city",
+            "message": "В городе «Астана» нет подрядчиков категории «Инструменталист».",
+            "query": {
+              "city": "Астана",
+              "event_date": "2026-10-15",
+              "event_type": "корпоратив",
+              "category": "Инструменталист",
+              "budget_kzt": 1000000,
+              "duration_hours": null,
+              "language": null,
+              "limit": 3
+            },
+            "total_category_city": 0,
+            "eligible_count": 0,
+            "results": [],
+            "excluded_summary": {},
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "E1",
+          "interactionMs": 44.91280000000006,
+          "httpMs": 5.298,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 3 подходящих профилей; показаны лучшие 3 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Астана",
+              "event_date": "2026-10-15",
+              "event_type": "свадьба",
+              "category": "Ведущий",
+              "budget_kzt": 1000000,
+              "duration_hours": null,
+              "language": null,
+              "limit": 3
+            },
+            "total_category_city": 5,
+            "eligible_count": 3,
+            "results": [
+              {
+                "id": "HK-37181",
+                "name": "Нами",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 800000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «ВЕДУ МЕРОПРИЯТИЯ УЖЕ БОЛЕЕ 15 ЛЕТ.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 26,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-80581",
+                "name": "Санджи Виндсмок",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 800000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «Резидент клуба импровизаторов Improv Konoha».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 26,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-97041",
+                "name": "Тэнъя Иида",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 1000000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 1,000,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «TOP 7 лучших ведущих KZ по мнению @aniwed.kz.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 20,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {
+              "booked": 2
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "E2",
+          "interactionMs": 51.8728000000001,
+          "httpMs": 4.343999999999999,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Астана",
+              "event_date": "2026-10-16",
+              "event_type": "свадьба",
+              "category": "Ведущий",
+              "budget_kzt": 1000000,
+              "duration_hours": null,
+              "language": null,
+              "limit": 3
+            },
+            "total_category_city": 5,
+            "eligible_count": 2,
+            "results": [
+              {
+                "id": "HK-37181",
+                "name": "Нами",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 800000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «ВЕДУ МЕРОПРИЯТИЯ УЖЕ БОЛЕЕ 15 ЛЕТ.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 26,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-97041",
+                "name": "Тэнъя Иида",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 1000000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 1,000,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «TOP 7 лучших ведущих KZ по мнению @aniwed.kz.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 20,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {
+              "booked": 3
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "F",
+          "interactionMs": 58.489300000000185,
+          "httpMs": 4.224,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-11-14",
+              "event_type": "свадьба",
+              "category": "Банкетный зал",
+              "budget_kzt": 6500000,
+              "duration_hours": 6,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 7,
+            "eligible_count": 2,
+            "results": [
+              {
+                "id": "HK-64395",
+                "name": "Иноскэ Хашибира",
+                "category": "Банкетный зал",
+                "city": "Алматы",
+                "price_from_kzt": 2500000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 2,500,000 ₸ укладывается в бюджет 6,500,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», указанный лимит 8 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Nerima Terrace – стильная панорамная локация в Алматы с захватывающим видом на город и горы.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 60.96,
+                "city_imputed": true,
+                "price_imputed": true
+              },
+              {
+                "id": "HK-90011",
+                "name": "Гохан",
+                "category": "Банкетный зал",
+                "city": "Алматы",
+                "price_from_kzt": 3200000,
+                "synthetic": true,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 3,200,000 ₸ укладывается в бюджет 6,500,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», указанный лимит 8 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Панорамные окна, вместимость зала до 200 гостей, свой кейтеринг и парковка для гостей мероприятия.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 57.73,
+                "city_imputed": false,
+                "price_imputed": true
+              }
+            ],
+            "excluded_summary": {
+              "booked": 5
+            },
+            "dataset_version": "87d082de8481"
+          }
+        }
+      ],
+      "mode": "dev"
+    },
+    {
+      "dataset_sha256": "87d082de8481f63795ba9d5b9509b5ffbdeabe3f99efd28b114be780df35d422",
+      "project": "mobile",
+      "cases": [
+        {
+          "id": "A",
+          "interactionMs": 83.23930000000018,
+          "httpMs": 5.857,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 5 подходящих профилей; показаны лучшие 3 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-10-10",
+              "event_type": "корпоратив",
+              "category": "Ведущий",
+              "budget_kzt": 1500000,
+              "duration_hours": 6,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 10,
+            "eligible_count": 5,
+            "results": [
+              {
+                "id": "HK-88430",
+                "name": "Куррапика",
+                "category": "Ведущий",
+                "city": "Алматы",
+                "price_from_kzt": 500000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 500,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», в каталоге указан язык «русский», указанный лимит 6 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Мой стиль — это сочетание интеллигентного юмора, четкой организации и высокого уровня ответственности.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 60,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-29829",
+                "name": "Аня Форджер",
+                "category": "Ведущий",
+                "city": "Алматы",
+                "price_from_kzt": 700000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 700,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», в каталоге указан язык «русский», указанный лимит 6 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Только развлечения и танцы.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 56,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-27222",
+                "name": "Сон Гоку",
+                "category": "Ведущий",
+                "city": "Алматы",
+                "price_from_kzt": 1000000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 1,000,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», в каталоге указан язык «русский», указанный лимит 10 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Сон Гоку — один из самых востребованных двуязычных ведущих Алматы с опытом более 12 лет.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 54,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {
+              "booked": 4,
+              "over_budget": 1
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "B",
+          "interactionMs": 58.75620000000026,
+          "httpMs": 3.98,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-10-11",
+              "event_type": "свадьба",
+              "category": "Флорист",
+              "budget_kzt": 400000,
+              "duration_hours": 8,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 2,
+            "eligible_count": 2,
+            "results": [
+              {
+                "id": "HK-39372",
+                "name": "Тони Тони Чоппер",
+                "category": "Флорист",
+                "city": "Алматы",
+                "price_from_kzt": 200000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 200,000 ₸ укладывается в бюджет 400,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», ограничение длительности в каталоге не задано. Особенность из описания профиля: «Ежемесячно реализуем более 1000 заказов.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 60,
+                "city_imputed": false,
+                "price_imputed": true
+              },
+              {
+                "id": "HK-90001",
+                "name": "Тихиро Огино",
+                "category": "Флорист",
+                "city": "Алматы",
+                "price_from_kzt": 250000,
+                "synthetic": true,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 250,000 ₸ укладывается в бюджет 400,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», ограничение длительности в каталоге не задано. Особенность из описания профиля: «Работаем с сезонными и привозными цветами, собираем композиции под цветовую палитру мероприятия — от букета невесты до оформления стола молодожёнов.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 56.25,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {},
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "C",
+          "interactionMs": 53.55639999999994,
+          "httpMs": 3.401,
+          "response": {
+            "status": "no_candidates_meet_conditions",
+            "message": "Категория есть в городе, но подходящих профилей нет: занят на выбранную дату: 4, цена выше бюджета: 6.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-10-10",
+              "event_type": "корпоратив",
+              "category": "Ведущий",
+              "budget_kzt": 1000,
+              "duration_hours": 6,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 10,
+            "eligible_count": 0,
+            "results": [],
+            "excluded_summary": {
+              "booked": 4,
+              "over_budget": 6
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "D",
+          "interactionMs": 49.416099999999915,
+          "httpMs": 3.655,
+          "response": {
+            "status": "no_category_in_city",
+            "message": "В городе «Астана» нет подрядчиков категории «Инструменталист».",
+            "query": {
+              "city": "Астана",
+              "event_date": "2026-10-15",
+              "event_type": "корпоратив",
+              "category": "Инструменталист",
+              "budget_kzt": 1000000,
+              "duration_hours": null,
+              "language": null,
+              "limit": 3
+            },
+            "total_category_city": 0,
+            "eligible_count": 0,
+            "results": [],
+            "excluded_summary": {},
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "E1",
+          "interactionMs": 55.85050000000001,
+          "httpMs": 4.133,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 3 подходящих профилей; показаны лучшие 3 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Астана",
+              "event_date": "2026-10-15",
+              "event_type": "свадьба",
+              "category": "Ведущий",
+              "budget_kzt": 1000000,
+              "duration_hours": null,
+              "language": null,
+              "limit": 3
+            },
+            "total_category_city": 5,
+            "eligible_count": 3,
+            "results": [
+              {
+                "id": "HK-37181",
+                "name": "Нами",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 800000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «ВЕДУ МЕРОПРИЯТИЯ УЖЕ БОЛЕЕ 15 ЛЕТ.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 26,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-80581",
+                "name": "Санджи Виндсмок",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 800000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «Резидент клуба импровизаторов Improv Konoha».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 26,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-97041",
+                "name": "Тэнъя Иида",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 1000000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 1,000,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «TOP 7 лучших ведущих KZ по мнению @aniwed.kz.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 20,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {
+              "booked": 2
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "E2",
+          "interactionMs": 52.33130000000028,
+          "httpMs": 4.025,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Астана",
+              "event_date": "2026-10-16",
+              "event_type": "свадьба",
+              "category": "Ведущий",
+              "budget_kzt": 1000000,
+              "duration_hours": null,
+              "language": null,
+              "limit": 3
+            },
+            "total_category_city": 5,
+            "eligible_count": 2,
+            "results": [
+              {
+                "id": "HK-37181",
+                "name": "Нами",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 800000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «ВЕДУ МЕРОПРИЯТИЯ УЖЕ БОЛЕЕ 15 ЛЕТ.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 26,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-97041",
+                "name": "Тэнъя Иида",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 1000000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 1,000,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «TOP 7 лучших ведущих KZ по мнению @aniwed.kz.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 20,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {
+              "booked": 3
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "F",
+          "interactionMs": 52.50889999999981,
+          "httpMs": 3.8219999999999996,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-11-14",
+              "event_type": "свадьба",
+              "category": "Банкетный зал",
+              "budget_kzt": 6500000,
+              "duration_hours": 6,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 7,
+            "eligible_count": 2,
+            "results": [
+              {
+                "id": "HK-64395",
+                "name": "Иноскэ Хашибира",
+                "category": "Банкетный зал",
+                "city": "Алматы",
+                "price_from_kzt": 2500000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 2,500,000 ₸ укладывается в бюджет 6,500,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», указанный лимит 8 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Nerima Terrace – стильная панорамная локация в Алматы с захватывающим видом на город и горы.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 60.96,
+                "city_imputed": true,
+                "price_imputed": true
+              },
+              {
+                "id": "HK-90011",
+                "name": "Гохан",
+                "category": "Банкетный зал",
+                "city": "Алматы",
+                "price_from_kzt": 3200000,
+                "synthetic": true,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 3,200,000 ₸ укладывается в бюджет 6,500,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», указанный лимит 8 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Панорамные окна, вместимость зала до 200 гостей, свой кейтеринг и парковка для гостей мероприятия.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 57.73,
+                "city_imputed": false,
+                "price_imputed": true
+              }
+            ],
+            "excluded_summary": {
+              "booked": 5
+            },
+            "dataset_version": "87d082de8481"
+          }
+        }
+      ],
+      "mode": "dev"
+    },
+    {
+      "dataset_sha256": "87d082de8481f63795ba9d5b9509b5ffbdeabe3f99efd28b114be780df35d422",
+      "project": "laptop",
+      "cases": [
+        {
+          "id": "A",
+          "interactionMs": 81.61889999999994,
+          "httpMs": 9.246,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 5 подходящих профилей; показаны лучшие 3 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-10-10",
+              "event_type": "корпоратив",
+              "category": "Ведущий",
+              "budget_kzt": 1500000,
+              "duration_hours": 6,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 10,
+            "eligible_count": 5,
+            "results": [
+              {
+                "id": "HK-88430",
+                "name": "Куррапика",
+                "category": "Ведущий",
+                "city": "Алматы",
+                "price_from_kzt": 500000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 500,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», в каталоге указан язык «русский», указанный лимит 6 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Мой стиль — это сочетание интеллигентного юмора, четкой организации и высокого уровня ответственности.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 60,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-29829",
+                "name": "Аня Форджер",
+                "category": "Ведущий",
+                "city": "Алматы",
+                "price_from_kzt": 700000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 700,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», в каталоге указан язык «русский», указанный лимит 6 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Только развлечения и танцы.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 56,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-27222",
+                "name": "Сон Гоку",
+                "category": "Ведущий",
+                "city": "Алматы",
+                "price_from_kzt": 1000000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 1,000,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», в каталоге указан язык «русский», указанный лимит 10 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Сон Гоку — один из самых востребованных двуязычных ведущих Алматы с опытом более 12 лет.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 54,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {
+              "booked": 4,
+              "over_budget": 1
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "B",
+          "interactionMs": 44.179299999999785,
+          "httpMs": 7.380999999999999,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-10-11",
+              "event_type": "свадьба",
+              "category": "Флорист",
+              "budget_kzt": 400000,
+              "duration_hours": 8,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 2,
+            "eligible_count": 2,
+            "results": [
+              {
+                "id": "HK-39372",
+                "name": "Тони Тони Чоппер",
+                "category": "Флорист",
+                "city": "Алматы",
+                "price_from_kzt": 200000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 200,000 ₸ укладывается в бюджет 400,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», ограничение длительности в каталоге не задано. Особенность из описания профиля: «Ежемесячно реализуем более 1000 заказов.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 60,
+                "city_imputed": false,
+                "price_imputed": true
+              },
+              {
+                "id": "HK-90001",
+                "name": "Тихиро Огино",
+                "category": "Флорист",
+                "city": "Алматы",
+                "price_from_kzt": 250000,
+                "synthetic": true,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 250,000 ₸ укладывается в бюджет 400,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», ограничение длительности в каталоге не задано. Особенность из описания профиля: «Работаем с сезонными и привозными цветами, собираем композиции под цветовую палитру мероприятия — от букета невесты до оформления стола молодожёнов.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 56.25,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {},
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "C",
+          "interactionMs": 46.25489999999991,
+          "httpMs": 6.001,
+          "response": {
+            "status": "no_candidates_meet_conditions",
+            "message": "Категория есть в городе, но подходящих профилей нет: занят на выбранную дату: 4, цена выше бюджета: 6.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-10-10",
+              "event_type": "корпоратив",
+              "category": "Ведущий",
+              "budget_kzt": 1000,
+              "duration_hours": 6,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 10,
+            "eligible_count": 0,
+            "results": [],
+            "excluded_summary": {
+              "booked": 4,
+              "over_budget": 6
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "D",
+          "interactionMs": 36.60690000000022,
+          "httpMs": 4.788,
+          "response": {
+            "status": "no_category_in_city",
+            "message": "В городе «Астана» нет подрядчиков категории «Инструменталист».",
+            "query": {
+              "city": "Астана",
+              "event_date": "2026-10-15",
+              "event_type": "корпоратив",
+              "category": "Инструменталист",
+              "budget_kzt": 1000000,
+              "duration_hours": null,
+              "language": null,
+              "limit": 3
+            },
+            "total_category_city": 0,
+            "eligible_count": 0,
+            "results": [],
+            "excluded_summary": {},
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "E1",
+          "interactionMs": 44.146000000000186,
+          "httpMs": 7.146,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 3 подходящих профилей; показаны лучшие 3 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Астана",
+              "event_date": "2026-10-15",
+              "event_type": "свадьба",
+              "category": "Ведущий",
+              "budget_kzt": 1000000,
+              "duration_hours": null,
+              "language": null,
+              "limit": 3
+            },
+            "total_category_city": 5,
+            "eligible_count": 3,
+            "results": [
+              {
+                "id": "HK-37181",
+                "name": "Нами",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 800000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «ВЕДУ МЕРОПРИЯТИЯ УЖЕ БОЛЕЕ 15 ЛЕТ.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 26,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-80581",
+                "name": "Санджи Виндсмок",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 800000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «Резидент клуба импровизаторов Improv Konoha».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 26,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-97041",
+                "name": "Тэнъя Иида",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 1000000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 1,000,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «TOP 7 лучших ведущих KZ по мнению @aniwed.kz.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 20,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {
+              "booked": 2
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "E2",
+          "interactionMs": 44.78839999999991,
+          "httpMs": 6.593,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Астана",
+              "event_date": "2026-10-16",
+              "event_type": "свадьба",
+              "category": "Ведущий",
+              "budget_kzt": 1000000,
+              "duration_hours": null,
+              "language": null,
+              "limit": 3
+            },
+            "total_category_city": 5,
+            "eligible_count": 2,
+            "results": [
+              {
+                "id": "HK-37181",
+                "name": "Нами",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 800000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «ВЕДУ МЕРОПРИЯТИЯ УЖЕ БОЛЕЕ 15 ЛЕТ.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 26,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-97041",
+                "name": "Тэнъя Иида",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 1000000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 1,000,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «TOP 7 лучших ведущих KZ по мнению @aniwed.kz.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 20,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {
+              "booked": 3
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "F",
+          "interactionMs": 36.884900000000016,
+          "httpMs": 6.507,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-11-14",
+              "event_type": "свадьба",
+              "category": "Банкетный зал",
+              "budget_kzt": 6500000,
+              "duration_hours": 6,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 7,
+            "eligible_count": 2,
+            "results": [
+              {
+                "id": "HK-64395",
+                "name": "Иноскэ Хашибира",
+                "category": "Банкетный зал",
+                "city": "Алматы",
+                "price_from_kzt": 2500000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 2,500,000 ₸ укладывается в бюджет 6,500,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», указанный лимит 8 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Nerima Terrace – стильная панорамная локация в Алматы с захватывающим видом на город и горы.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 60.96,
+                "city_imputed": true,
+                "price_imputed": true
+              },
+              {
+                "id": "HK-90011",
+                "name": "Гохан",
+                "category": "Банкетный зал",
+                "city": "Алматы",
+                "price_from_kzt": 3200000,
+                "synthetic": true,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 3,200,000 ₸ укладывается в бюджет 6,500,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», указанный лимит 8 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Панорамные окна, вместимость зала до 200 гостей, свой кейтеринг и парковка для гостей мероприятия.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 57.73,
+                "city_imputed": false,
+                "price_imputed": true
+              }
+            ],
+            "excluded_summary": {
+              "booked": 5
+            },
+            "dataset_version": "87d082de8481"
+          }
+        }
+      ],
+      "mode": "built"
+    },
+    {
+      "dataset_sha256": "87d082de8481f63795ba9d5b9509b5ffbdeabe3f99efd28b114be780df35d422",
+      "project": "mobile",
+      "cases": [
+        {
+          "id": "A",
+          "interactionMs": 46.73180000000002,
+          "httpMs": 7.111,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 5 подходящих профилей; показаны лучшие 3 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-10-10",
+              "event_type": "корпоратив",
+              "category": "Ведущий",
+              "budget_kzt": 1500000,
+              "duration_hours": 6,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 10,
+            "eligible_count": 5,
+            "results": [
+              {
+                "id": "HK-88430",
+                "name": "Куррапика",
+                "category": "Ведущий",
+                "city": "Алматы",
+                "price_from_kzt": 500000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 500,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», в каталоге указан язык «русский», указанный лимит 6 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Мой стиль — это сочетание интеллигентного юмора, четкой организации и высокого уровня ответственности.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 60,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-29829",
+                "name": "Аня Форджер",
+                "category": "Ведущий",
+                "city": "Алматы",
+                "price_from_kzt": 700000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 700,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», в каталоге указан язык «русский», указанный лимит 6 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Только развлечения и танцы.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 56,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-27222",
+                "name": "Сон Гоку",
+                "category": "Ведущий",
+                "city": "Алматы",
+                "price_from_kzt": 1000000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 1,000,000 ₸ укладывается в бюджет 1,500,000 ₸, профиль принимает формат «корпоратив», в каталоге указан язык «русский», указанный лимит 10 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Сон Гоку — один из самых востребованных двуязычных ведущих Алматы с опытом более 12 лет.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 54,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {
+              "booked": 4,
+              "over_budget": 1
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "B",
+          "interactionMs": 52.95820000000003,
+          "httpMs": 6.087,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-10-11",
+              "event_type": "свадьба",
+              "category": "Флорист",
+              "budget_kzt": 400000,
+              "duration_hours": 8,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 2,
+            "eligible_count": 2,
+            "results": [
+              {
+                "id": "HK-39372",
+                "name": "Тони Тони Чоппер",
+                "category": "Флорист",
+                "city": "Алматы",
+                "price_from_kzt": 200000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 200,000 ₸ укладывается в бюджет 400,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», ограничение длительности в каталоге не задано. Особенность из описания профиля: «Ежемесячно реализуем более 1000 заказов.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 60,
+                "city_imputed": false,
+                "price_imputed": true
+              },
+              {
+                "id": "HK-90001",
+                "name": "Тихиро Огино",
+                "category": "Флорист",
+                "city": "Алматы",
+                "price_from_kzt": 250000,
+                "synthetic": true,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 250,000 ₸ укладывается в бюджет 400,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», ограничение длительности в каталоге не задано. Особенность из описания профиля: «Работаем с сезонными и привозными цветами, собираем композиции под цветовую палитру мероприятия — от букета невесты до оформления стола молодожёнов.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 56.25,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {},
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "C",
+          "interactionMs": 48.78780000000006,
+          "httpMs": 5.311999999999999,
+          "response": {
+            "status": "no_candidates_meet_conditions",
+            "message": "Категория есть в городе, но подходящих профилей нет: занят на выбранную дату: 4, цена выше бюджета: 6.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-10-10",
+              "event_type": "корпоратив",
+              "category": "Ведущий",
+              "budget_kzt": 1000,
+              "duration_hours": 6,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 10,
+            "eligible_count": 0,
+            "results": [],
+            "excluded_summary": {
+              "booked": 4,
+              "over_budget": 6
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "D",
+          "interactionMs": 43.834100000000035,
+          "httpMs": 4.957,
+          "response": {
+            "status": "no_category_in_city",
+            "message": "В городе «Астана» нет подрядчиков категории «Инструменталист».",
+            "query": {
+              "city": "Астана",
+              "event_date": "2026-10-15",
+              "event_type": "корпоратив",
+              "category": "Инструменталист",
+              "budget_kzt": 1000000,
+              "duration_hours": null,
+              "language": null,
+              "limit": 3
+            },
+            "total_category_city": 0,
+            "eligible_count": 0,
+            "results": [],
+            "excluded_summary": {},
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "E1",
+          "interactionMs": 45.78359999999975,
+          "httpMs": 6.679,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 3 подходящих профилей; показаны лучшие 3 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Астана",
+              "event_date": "2026-10-15",
+              "event_type": "свадьба",
+              "category": "Ведущий",
+              "budget_kzt": 1000000,
+              "duration_hours": null,
+              "language": null,
+              "limit": 3
+            },
+            "total_category_city": 5,
+            "eligible_count": 3,
+            "results": [
+              {
+                "id": "HK-37181",
+                "name": "Нами",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 800000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «ВЕДУ МЕРОПРИЯТИЯ УЖЕ БОЛЕЕ 15 ЛЕТ.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 26,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-80581",
+                "name": "Санджи Виндсмок",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 800000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «Резидент клуба импровизаторов Improv Konoha».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 26,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-97041",
+                "name": "Тэнъя Иида",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 1000000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 1,000,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «TOP 7 лучших ведущих KZ по мнению @aniwed.kz.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 20,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {
+              "booked": 2
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "E2",
+          "interactionMs": 46.593999999999596,
+          "httpMs": 15.587,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Астана",
+              "event_date": "2026-10-16",
+              "event_type": "свадьба",
+              "category": "Ведущий",
+              "budget_kzt": 1000000,
+              "duration_hours": null,
+              "language": null,
+              "limit": 3
+            },
+            "total_category_city": 5,
+            "eligible_count": 2,
+            "results": [
+              {
+                "id": "HK-37181",
+                "name": "Нами",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 800000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 800,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «ВЕДУ МЕРОПРИЯТИЯ УЖЕ БОЛЕЕ 15 ЛЕТ.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 26,
+                "city_imputed": false,
+                "price_imputed": false
+              },
+              {
+                "id": "HK-97041",
+                "name": "Тэнъя Иида",
+                "category": "Ведущий",
+                "city": "Астана",
+                "price_from_kzt": 1000000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 1,000,000 ₸ укладывается в бюджет 1,000,000 ₸, профиль принимает формат «свадьба». Особенность из описания профиля: «TOP 7 лучших ведущих KZ по мнению @aniwed.kz.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 20,
+                "city_imputed": false,
+                "price_imputed": false
+              }
+            ],
+            "excluded_summary": {
+              "booked": 3
+            },
+            "dataset_version": "87d082de8481"
+          }
+        },
+        {
+          "id": "F",
+          "interactionMs": 47.0326,
+          "httpMs": 5.601999999999999,
+          "response": {
+            "status": "matches_found",
+            "message": "Найдено 2 подходящих профилей; показаны лучшие 2 по прозрачному баллу соответствия.",
+            "query": {
+              "city": "Алматы",
+              "event_date": "2026-11-14",
+              "event_type": "свадьба",
+              "category": "Банкетный зал",
+              "budget_kzt": 6500000,
+              "duration_hours": 6,
+              "language": "русский",
+              "limit": 3
+            },
+            "total_category_city": 7,
+            "eligible_count": 2,
+            "results": [
+              {
+                "id": "HK-64395",
+                "name": "Иноскэ Хашибира",
+                "category": "Банкетный зал",
+                "city": "Алматы",
+                "price_from_kzt": 2500000,
+                "synthetic": false,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 2,500,000 ₸ укладывается в бюджет 6,500,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», указанный лимит 8 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Nerima Terrace – стильная панорамная локация в Алматы с захватывающим видом на город и горы.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 60.96,
+                "city_imputed": true,
+                "price_imputed": true
+              },
+              {
+                "id": "HK-90011",
+                "name": "Гохан",
+                "category": "Банкетный зал",
+                "city": "Алматы",
+                "price_from_kzt": 3200000,
+                "synthetic": true,
+                "explanation": "Свободен на выбранную дату по календарю датасета; цена от 3,200,000 ₸ укладывается в бюджет 6,500,000 ₸, профиль принимает формат «свадьба», в каталоге указан язык «русский», указанный лимит 8 ч подходит под запрос на 6 ч. Особенность из описания профиля: «Панорамные окна, вместимость зала до 200 гостей, свой кейтеринг и парковка для гостей мероприятия.».",
+                "match_factors": [
+                  "availability",
+                  "budget",
+                  "format",
+                  "language",
+                  "duration",
+                  "profile",
+                  "relevant_profile"
+                ],
+                "score": 57.73,
+                "city_imputed": false,
+                "price_imputed": true
+              }
+            ],
+            "excluded_summary": {
+              "booked": 5
+            },
+            "dataset_version": "87d082de8481"
+          }
+        }
+      ],
+      "mode": "built"
+    }
+  ]
 }
