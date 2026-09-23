@@ -12,6 +12,7 @@ function client() {
 }
 async function mount(service = client()) {
   render(<App client={service} />);
+  await userEvent.click(screen.getByRole('button', { name: 'Найти подрядчика' }));
   await waitFor(() => expect(screen.getByRole('button', { name: 'Подобрать' })).toBeEnabled());
   return service;
 }
@@ -121,6 +122,7 @@ it('comparison never assigns a personal reason and resets for other changes/vers
 it('an unavailable metadata service cannot enable a fake fallback', async () => {
   const service = client(); service.metadata.mockRejectedValue(new Error('secret'));
   render(<App client={service} />);
+  await userEvent.click(screen.getByRole('button', { name: 'Найти подрядчика' }));
   expect(await screen.findByRole('alert')).toHaveTextContent('Не удалось загрузить справочники');
   fireEvent.submit(screen.getByRole('form'));
   expect(service.recommend).not.toHaveBeenCalled();

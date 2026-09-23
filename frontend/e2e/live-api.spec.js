@@ -49,6 +49,7 @@ function audit(raw) {
 }
 async function open(page) {
   await page.goto('/');
+  await page.getByRole('button', { name: 'Найти подрядчика', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Подобрать', exact: true })).toBeEnabled();
 }
 async function preset(page, id) {

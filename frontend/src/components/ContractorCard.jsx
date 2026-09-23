@@ -1,6 +1,7 @@
 import { money } from '../utils/formatting';
 
-export default function ContractorCard({ card, position }) {
+export default function ContractorCard({ card, position, onAddToCart, inCart, onOpenCart, language = 'ru' }) {
+  const cartText = language === 'en' ? (inCart ? 'In estimate →' : 'Add to estimate +') : language === 'kk' ? (inCart ? 'Сметада →' : 'Сметаға қосу +') : (inCart ? 'В смете →' : 'Добавить в смету +');
   return <article className="contractor-card" aria-label={`${position}. ${card.name}`} data-testid="contractor-card">
     <div className="card-heading">
       <span className="rank" aria-label={`Место ${position}`}>{String(position).padStart(2, '0')}</span>
@@ -9,7 +10,7 @@ export default function ContractorCard({ card, position }) {
     </div>
     <div className="card-price">от {money(card.price_from_kzt)} ₸ <span>за мероприятие</span></div>
     <div className="explanation"><span className="explanation-label">Почему подходит</span><p>{card.explanation}</p></div>
-    <div className="card-footer"><span className={`tag ${card.synthetic ? 'synthetic' : ''}`}>{card.synthetic ? 'Синтетический профиль' : 'Анонимизированный профиль'}</span></div>
+    <div className="card-footer"><span className={`tag ${card.synthetic ? 'synthetic' : ''}`}>{card.synthetic ? 'Синтетический профиль' : 'Анонимизированный профиль'}</span><button type="button" className={`cart-add ${inCart ? 'added' : ''}`} onClick={() => inCart ? onOpenCart() : onAddToCart(card)}>{cartText}</button></div>
     {card.price_imputed === true && <p className="data-note">Цена проставлена при подготовке датасета</p>}
     {card.city_imputed === true && <p className="data-note">Город проставлен при подготовке датасета</p>}
   </article>;
