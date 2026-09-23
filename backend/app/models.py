@@ -32,6 +32,8 @@ class ContractorCard(BaseModel):
     explanation: str
     match_factors: List[str]
     score: float
+    city_imputed: bool = False
+    price_imputed: bool = False
 
 
 class RecommendationResponse(BaseModel):
@@ -42,6 +44,7 @@ class RecommendationResponse(BaseModel):
     eligible_count: int
     results: List[ContractorCard]
     excluded_summary: dict[str, int]
+    dataset_version: str | None = None
 
 
 class CatalogMeta(BaseModel):
@@ -50,3 +53,4 @@ class CatalogMeta(BaseModel):
     categories: List[str]
     event_formats: List[str]
     languages: List[str]
+    dataset_version: str | None = None

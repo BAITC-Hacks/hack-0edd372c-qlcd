@@ -331,3 +331,22 @@ html[data-theme="dark"] .cart-summary p, html[data-theme="dark"] .cart-summary >
   .footer-brand { grid-column: 1 / -1; }
   .footer-bottom { margin: 0 18px; padding-left: 0; padding-right: 0; flex-direction: column; }
 }
+
+/* Dark-theme readability fixes for matcher feedback and native selects. */
+.matcher-main .draft-notice,
+.matcher-main .comparison {
+  color: var(--ink);
+  background: var(--surface-3);
+  border-left-color: var(--orange);
+}
+html[data-theme="dark"] .matcher-main select {
+  color-scheme: dark;
+}
+html[data-theme="dark"] .matcher-main select option {
+  color: var(--ink);
+  background: var(--surface);
+}
+html[data-theme="dark"] .matcher-main select:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(244, 107, 22, .18);
+}

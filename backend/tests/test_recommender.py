@@ -1,7 +1,7 @@
 from datetime import date
 from pathlib import Path
 
-from app.data_loader import load_contractors
+from app.data_loader import load_contractors, unique_values
 from app.models import RecommendationRequest
 from app.recommender import recommend
 
@@ -18,6 +18,10 @@ def test_loads_all_profiles():
     assert len(CONTRACTORS) == 66
 
 
+def test_metadata_keeps_city_names_intact():
+    assert unique_values(CONTRACTORS, "city") == ["Алматы", "Астана", "Зарубежье"]
+
+
 def test_deterministic_order():
     assert [x.id for x in recommend(request(), CONTRACTORS).results] == [x.id for x in recommend(request(), CONTRACTORS).results]
 
@@ -25,6 +29,12 @@ def test_deterministic_order():
 def test_busy_profile_is_not_returned():
     response = recommend(request(event_date=date(2026, 9, 25)), CONTRACTORS)
     assert all("2026-09-25" not in next(c for c in CONTRACTORS if c.id == card.id).busy_dates for card in response.results)
+
+
+def test_provenance_flags_are_returned():
+    response = recommend(request(), CONTRACTORS, dataset_version="test-version")
+    assert response.dataset_version == "test-version"
+    assert all(isinstance(card.city_imputed, bool) and isinstance(card.price_imputed, bool) for card in response.results)
 
 
 def test_distinguishes_missing_category_and_constraints():

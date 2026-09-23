@@ -8,6 +8,8 @@ const TEXT = {
 
 export default function SearchForm({ fields, metadata, errors, onChange, onSubmit, loading, language = 'ru' }) {
   const text = TEXT[language] || TEXT.ru;
+  const displayOption = value => value ? value.slice(0, 1).toLocaleUpperCase(language) + value.slice(1) : value;
+
   function field(key, label, control, hint) {
     const shared = { id: key, name: key, value: fields[key], onChange: event => onChange(key, event.target.value), 'aria-invalid': Boolean(errors[key]), 'aria-describedby': errors[key] ? `${key}-error` : hint ? `${key}-hint` : undefined };
     return <div className="field">
@@ -16,10 +18,12 @@ export default function SearchForm({ fields, metadata, errors, onChange, onSubmi
       {errors[key] ? <span id={`${key}-error`} className="field-error">{errors[key]}</span> : hint && <span className="hint" id={`${key}-hint`}>{hint}</span>}
     </div>;
   }
+
   const select = (key, label, options, optional = false) => field(key, label, props => <select {...props}>
-    <option value="">{optional ? text.none : text.choose}</option>
-    {options.map(value => <option value={value} key={value}>{value}</option>)}
+    {!fields[key] && <option value="">{optional ? text.none : text.choose}</option>}
+    {options.map(value => <option value={value} key={value}>{displayOption(value)}</option>)}
   </select>);
+
   return <form onSubmit={onSubmit} noValidate aria-label="Параметры мероприятия">
     <div className="section-heading"><span className="step">01</span><h2>{text.title}</h2></div>
     <p className="section-description">{text.description}</p>

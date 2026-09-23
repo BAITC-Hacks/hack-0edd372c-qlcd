@@ -57,5 +57,9 @@ def load_contractors(path: Path) -> List[Contractor]:
 def unique_values(contractors: Iterable[Contractor], field: str) -> list[str]:
     values: set[str] = set()
     for contractor in contractors:
-        values.update(getattr(contractor, field))
+        value = getattr(contractor, field)
+        if isinstance(value, str):
+            values.add(value)
+        else:
+            values.update(value)
     return sorted(values, key=str.casefold)
